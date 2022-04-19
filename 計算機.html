@@ -12,20 +12,20 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         html,
-        body{
+        body {
             width: 100%;
             height: 100%;
-            background:url(https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80) no-repeat fixed top/cover;
+            background: url(https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80) no-repeat fixed top/cover;
         }
 
 
         table {
-            margin: 10% ;
+            margin: 10%;
             width: 300px;
             height: 300px;
             font-family: 'Oxanium', cursive;
             font-size: 36px;
-            
+
             /* background: rgba(255, 255, 255, 0.5)  ; */
             border-radius: 5%;
             /* box-shadow: 5px 5px 10px rgba(0,0,0,0.5); */
@@ -33,7 +33,7 @@
         }
 
         td {
-            
+
             width: 60px;
             height: 60px;
             /* border: 1px solid rgb(156, 156, 156); */
@@ -42,10 +42,10 @@
             color: white;
             border-radius: 10%;
             background: rgba(255, 255, 255, 0.3);
-            
+
             box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.8);
             filter: drop-shadow(5px 5px 6px rgba(86, 86, 86, 0.8));
-            
+
 
         }
 
@@ -55,28 +55,35 @@
             padding: 20px;
             background: rgba(255, 255, 255, 0.3);
             /* border-radius: 0%; */
-            
-            
-            
+
+
+
         }
 
-        td:hover{
+        td:hover {
             background: rgb(255, 255, 255);
             color: black;
             border-radius: 10%;
         }
-        #input:hover{
+
+        #input:hover {
             color: white;
             border-radius: 10%;
         }
-
+        i{
+            color: white;
+        }
     </style>
 </head>
 
 <body>
     <div>
+        <i class="fa-solid fa-volume-off"></i><input id="vol" type="range" max="10" min="0" ><i class="fa-solid fa-volume-high"></i>
+        <!-- <input id="vol" type="range" max="100" min="0" > -->
+        <span></span>
+
         <table>
-    
+
             <tr>
                 <td colspan="4" id="input">0</td>
 
@@ -112,28 +119,40 @@
 
             </tr>
         </table>
-        
+
 
     </div>
 
     <script>
         const input = document.getElementById('input')
         const tds = document.querySelectorAll('td:not(#input)')
-        const v = new Audio();
-        // v.src = "https://rogeraabbccdd.github.io/F2E-book/assets/ch12/meow.mp3";
-        // v.play()
+        const vol = document.getElementById('vol')
+        const v = new Audio();//+上老師的喵喵叫
+        v.src = "https://rogeraabbccdd.github.io/F2E-book/assets/ch12/meow.mp3";
+        v.volume=vol.value*0.1
+        
+        
+
 
         for (const td of tds) {
 
             td.onclick = () => {
                 const text = td.innerText
                 calc(text)
+                v.volume=vol.value*0.1
+                v.play()//+上老師的喵喵叫
             }//onclick over
 
 
             document.onkeydown = event => {
                 calc(event.key)
+                v.volume=vol.value*0.1
+                v.play()//+上老師的喵喵叫
             }//onkeydown over
+
+
+            // v.src = "https://rogeraabbccdd.github.io/F2E-book/assets/ch12/meow.mp3";
+            // v.play()
 
             //calc()開始
             const calc = (value) => {
@@ -184,9 +203,9 @@
                 if (!isNaN(parseInt(value))) {
                     document.getElementById('td' + value).style.background = "white"
                     setTimeout(() => {
-                        document.getElementById('td' + value).style.background = "rgba(255, 255, 255, 0.3)" 
-                
-                }, 50)
+                        document.getElementById('td' + value).style.background = "rgba(255, 255, 255, 0.3)"
+
+                    }, 50)
                 }
 
                 // 效果(字符部分)
