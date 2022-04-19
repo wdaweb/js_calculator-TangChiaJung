@@ -6,33 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>20220419-計算機</title>
-    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        html,
+        body{
+            width: 100%;
+            height: 100%;
+            background:url(https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80) no-repeat fixed top/cover;
+        }
+
+
         table {
+            margin: 10% ;
             width: 300px;
             height: 300px;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Oxanium', cursive;
             font-size: 36px;
+            
+            /* background: rgba(255, 255, 255, 0.5)  ; */
+            border-radius: 5%;
+            /* box-shadow: 5px 5px 10px rgba(0,0,0,0.5); */
+            /* filter: drop-shadow(5px 5px 6px rgba(255, 255, 255, 0.8)); */
         }
 
         td {
+            
             width: 60px;
             height: 60px;
-            border: 1px solid rgb(156, 156, 156);
+            /* border: 1px solid rgb(156, 156, 156); */
             text-align: center;
             vertical-align: middle;
+            color: white;
+            border-radius: 10%;
+            background: rgba(255, 255, 255, 0.3);
+            
+            box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.8);
+            filter: drop-shadow(5px 5px 6px rgba(86, 86, 86, 0.8));
+            
 
         }
 
 
         #input {
             text-align: right;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            /* border-radius: 0%; */
+            
+            
+            
         }
 
+        td:hover{
+            background: rgb(255, 255, 255);
+            color: black;
+            border-radius: 10%;
+        }
+        #input:hover{
+            color: white;
+            border-radius: 10%;
+        }
 
     </style>
 </head>
@@ -40,10 +76,12 @@
 <body>
     <div>
         <table>
+    
             <tr>
                 <td colspan="4" id="input">0</td>
 
             </tr>
+
             <tr>
                 <td id="tdc">C</td>
                 <td id="tda">/</td>
@@ -74,191 +112,113 @@
 
             </tr>
         </table>
+        
 
     </div>
 
     <script>
         const input = document.getElementById('input')
         const tds = document.querySelectorAll('td:not(#input)')
+        const v = new Audio();
+        // v.src = "https://rogeraabbccdd.github.io/F2E-book/assets/ch12/meow.mp3";
+        // v.play()
 
         for (const td of tds) {
+
             td.onclick = () => {
                 const text = td.innerText
                 calc(text)
-
-                // if (text === '=') {
-                //     //執行算式
-                //     input.innerText = eval(input.innerText)
-                // } else if (text === 'C') {
-                //     //C重設
-                //     input.innerText = '0'
-                // } else if (text === '') {
-                //     //設為返回
-                //     input.innerText = input.innerText.substring(0, input.innerText.length - 1)//.substring(保留範圍)
-                //     if (input.innerText.length === 0) {
-                //         input.innerText = '0'
-                //     }
-
-                // } else {
-                //     //一般按鍵
-                //     if (input.innerText === '0') {
-                //         input.innerText = text
-                //     } else {
-                //         input.innerText += text
-                //     }
-
-                // }
-
-                // console.log(td.innerText)
-            }
-        }//onclick over
+            }//onclick over
 
 
-        document.onkeydown = event => {
-            calc(event.key)
-            // if (event.key === 'Enter') {
-            //     //執行算式
-            //     input.innerText = eval(input.innerText)
-            // } else if (
-            //     !isNaN(parseInt(event.key)) ||
-            //     event.key === '+' ||
-            //     event.key === '-' ||
-            //     event.key === '*' ||
-            //     event.key === '/' ||
-            //     event.key === '.'
-            // ) {
-            //     if (input.innerText === '0') {
-            //         input.innerText = event.key
-            //     } else {
-            //         if(!isNaN(input.innerText[input.innerText.length-1]) ||  !isNaN(parseInt(event.key))){
-            //                 input.innerText+=event.key
-            //             //判斷最後一個字為數字 or key為數字時，才可以增加event.key。
-            
-            //         }
-            
-            //     }
-            // } else if (event.key === 'Backspace') {
-            //     //Backspace 設為返回
-            //     input.innerText = input.innerText.substring(0, input.innerText.length - 1)//.substring(保留範圍)
-            //     if (input.innerText.length === 0) {
-            //         input.innerText = '0'
-            //     }
-            // } else if (event.key === 'c' || event.key === 'C') { //大小寫c -> reset
-            //     input.innerText = '0'
+            document.onkeydown = event => {
+                calc(event.key)
+            }//onkeydown over
 
-            // }
+            //calc()開始
+            const calc = (value) => {
 
-            // //onkeydown 效果(數字部分
-            // if (!isNaN(parseInt(event.key))) {
-            //     document.getElementById('td' + event.key).style.background = "pink"
-            //     setTimeout(() => { document.getElementById('td' + event.key).style.background = "transparent" }, 50)
-            // }
+                //字串過長時，縮小字體
+                if (input.innerText.length > 11) {
+                    input.style.fontSize = "20px"
+                } else if (input.innerText.length < 10) {
+                    input.style.fontSize = "36px"
+                }
 
-            // //onkeydown 效果(字符部分)
-            // if (event.key === '/') {
-            //     document.getElementById('tda').style.background = "pink"
-            //     setTimeout(() => { document.getElementById('tda').style.background = "transparent" }, 50)
-            // } else if (event.key === '*') {
-            //     document.getElementById('tdb').style.background = "pink"
-            //     setTimeout(() => { document.getElementById('tdb').style.background = "transparent" }, 50)
-            // } else if (event.key === 'Backspace') {
-            //     document.getElementById('tde').style.background = "pink"
-            //     setTimeout(() => { document.getElementById('tde').style.background = "transparent" }, 50)
-            // } else if (event.key === '-') {
-            //     document.getElementById('tdf').style.background = "pink"
-            //     setTimeout(() => { document.getElementById('tdf').style.background = "transparent" }, 50)
-            // } else if (event.key === '+') {
-            //     document.getElementById('tdg').style.background = "pink"
-            //     setTimeout(() => { document.getElementById('tdg').style.background = "transparent" }, 50)
-            // } else if (event.key === '=' || event.key === 'Enter') {
-            //     document.getElementById('tdh').style.background = "pink"
-            //     setTimeout(() => { document.getElementById('tdh').style.background = "transparent" }, 50)
-            // } else if (event.key === '.') {
-            //     document.getElementById('tdi').style.background = "pink"
-            //     setTimeout(() => { document.getElementById('tdi').style.background = "transparent" }, 50)
-            // } else if (event.key === 'c' || event.key === 'C') {
-            //     document.getElementById('tdc').style.background = "pink"
-            //     setTimeout(() => { document.getElementById('tdc').style.background = "transparent" }, 50)
-            // }
+                if (value === 'Enter' || value === '=') {
+                    //執行算式
+                    input.innerText = eval(input.innerText)
 
+                } else if (
+                    !isNaN(parseInt(value)) ||
+                    value === '+' ||
+                    value === '-' ||
+                    value === '*' ||
+                    value === '/' ||
+                    value === '.'
+                ) {
+                    if (input.innerText.length < 22) { //限制字串長度避免寬度變形
 
-
-        }//onkeydown over
-
-        const calc =(value)=>{
-
-                        //onkeydown 效果(數字部分
-                        if (!isNaN(parseInt(value))) {
-                document.getElementById('td' + value).style.background = "pink"
-                setTimeout(() => { document.getElementById('td' + value).style.background = "transparent" }, 50)
-            }
-
-            //onkeydown 效果(字符部分)
-            if (value === '/') {
-                document.getElementById('tda').style.background = "pink"
-                setTimeout(() => { document.getElementById('tda').style.background = "transparent" }, 50)
-            } else if (value === '*') {
-                document.getElementById('tdb').style.background = "pink"
-                setTimeout(() => { document.getElementById('tdb').style.background = "transparent" }, 50)
-            } else if (value === 'Backspace' ||value === '') {
-                document.getElementById('tde').style.background = "pink"
-                setTimeout(() => { document.getElementById('tde').style.background = "transparent" }, 50)
-            } else if (value === '-') {
-                document.getElementById('tdf').style.background = "pink"
-                setTimeout(() => { document.getElementById('tdf').style.background = "transparent" }, 50)
-            } else if (value === '+') {
-                document.getElementById('tdg').style.background = "pink"
-                setTimeout(() => { document.getElementById('tdg').style.background = "transparent" }, 50)
-            } else if (value === '=' || value === 'Enter') {
-                document.getElementById('tdh').style.background = "pink"
-                setTimeout(() => { document.getElementById('tdh').style.background = "transparent" }, 50)
-            } else if (value === '.') {
-                document.getElementById('tdi').style.background = "pink"
-                setTimeout(() => { document.getElementById('tdi').style.background = "transparent" }, 50)
-            } else if (value === 'c' || value === 'C') {
-                document.getElementById('tdc').style.background = "pink"
-                setTimeout(() => { document.getElementById('tdc').style.background = "transparent" }, 50)
-            }
-
-
-            if (value === 'Enter' || value==='=') {
-                //執行算式
-                input.innerText = eval(input.innerText)
-            } else if (
-                !isNaN(parseInt(value)) ||
-                value === '+' ||
-                value === '-' ||
-                value === '*' ||
-                value === '/' ||
-                value === '.'
-            ) {
-                if (input.innerText === '0') {
-                    input.innerText = value
-                } else {
-                    if(!isNaN(input.innerText[input.innerText.length-1]) ||  !isNaN(parseInt(value))){
-                            input.innerText+=value
-                        //判斷最後一個字為數字 or key為數字時，才可以增加value。
-                        
+                        if (input.innerText === '0') {
+                            input.innerText = value
+                        } else {
+                            if (!isNaN(input.innerText[input.innerText.length - 1]) || !isNaN(parseInt(value))) {
+                                input.innerText += value
+                                //判斷最後一個字為數字 or key為數字時，才可以增加value。
+                                //修正+-*/重複疊加造成式子失敗現象
+                            }
+                        }
                     }
-                    
-                }
-            } else if (value === 'Backspace' || value==='') {
-                //Backspace 設為返回
-                input.innerText = input.innerText.substring(0, input.innerText.length - 1)//.substring(保留範圍)
-                if (input.innerText.length === 0) {
+                } else if (value === 'Backspace' || value === '') {
+                    //Backspace 設為返回
+                    input.innerText = input.innerText.substring(0, input.innerText.length - 1)//.substring(保留範圍)
+                    if (input.innerText.length === 0) {
+                        input.innerText = '0'
+                    }
+                } else if (value === 'c' || value === 'C') { //大小寫c -> reset
                     input.innerText = '0'
+
                 }
-            } else if (value === 'c' || value === 'C') { //大小寫c -> reset
-                input.innerText = '0'
 
-            }
+                // 效果(數字部分
+                if (!isNaN(parseInt(value))) {
+                    document.getElementById('td' + value).style.background = "white"
+                    setTimeout(() => {
+                        document.getElementById('td' + value).style.background = "rgba(255, 255, 255, 0.3)" 
+                
+                }, 50)
+                }
 
+                // 效果(字符部分)
+                if (value === '/') {
+                    document.getElementById('tda').style.background = "white"
+                    setTimeout(() => { document.getElementById('tda').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                } else if (value === '*') {
+                    document.getElementById('tdb').style.background = "white"
+                    setTimeout(() => { document.getElementById('tdb').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                } else if (value === 'Backspace') {
+                    document.getElementById('tde').style.background = "white"
+                    setTimeout(() => { document.getElementById('tde').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                } else if (value === '-') {
+                    document.getElementById('tdf').style.background = "white"
+                    setTimeout(() => { document.getElementById('tdf').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                } else if (value === '+') {
+                    document.getElementById('tdg').style.background = "white"
+                    setTimeout(() => { document.getElementById('tdg').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                } else if (value === '=' || value === 'Enter') {
+                    document.getElementById('tdh').style.background = "white"
+                    setTimeout(() => { document.getElementById('tdh').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                } else if (value === '.') {
+                    document.getElementById('tdi').style.background = "white"
+                    setTimeout(() => { document.getElementById('tdi').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                } else if (value === 'c' || value === 'C') {
+                    document.getElementById('tdc').style.background = "white"
+                    setTimeout(() => { document.getElementById('tdc').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                }
+                console.log(value)
+            }//calc()結束
 
-            console.log(value)
-            
         }
-
-
 
     </script>
 
