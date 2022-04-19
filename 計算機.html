@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20220419-計算機</title>
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        table {
+            width: 300px;
+            height: 300px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+        }
+
+        td {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgb(156, 156, 156);
+            text-align: center;
+            vertical-align: middle;
+
+        }
+
+
+        #input {
+            text-align: right;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tr>
+                <td colspan="4" id="input">0</td>
+
+            </tr>
+            <tr>
+                <td id="tdc">C</td>
+                <td id="tda">/</td>
+                <td id="tdb">*</td>
+                <td id="tde"><i class="fa-solid fa-delete-left"></i></td>
+            </tr>
+            <tr>
+                <td id="td7">7</td>
+                <td id="td8">8</td>
+                <td id="td9">9</td>
+                <td id="tdf">-</td>
+            </tr>
+            <tr>
+                <td id="td4">4</td>
+                <td id="td5">5</td>
+                <td id="td6">6</td>
+                <td id="tdg">+</td>
+            </tr>
+            <tr>
+                <td id="td1">1</td>
+                <td id="td2">2</td>
+                <td id="td3">3</td>
+                <td id="tdh" rowspan="2">=</td>
+            </tr>
+            <tr>
+                <td colspan="2" id="td0">0</td>
+                <td id="tdi">.</td>
+
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+        const input = document.getElementById('input')
+        const tds = document.querySelectorAll('td:not(#input)')
+
+        for (const td of tds) {
+            td.onclick = () => {
+                const text = td.innerText
+                calc(text)
+
+                // if (text === '=') {
+                //     //執行算式
+                //     input.innerText = eval(input.innerText)
+                // } else if (text === 'C') {
+                //     //C重設
+                //     input.innerText = '0'
+                // } else if (text === '') {
+                //     //設為返回
+                //     input.innerText = input.innerText.substring(0, input.innerText.length - 1)//.substring(保留範圍)
+                //     if (input.innerText.length === 0) {
+                //         input.innerText = '0'
+                //     }
+
+                // } else {
+                //     //一般按鍵
+                //     if (input.innerText === '0') {
+                //         input.innerText = text
+                //     } else {
+                //         input.innerText += text
+                //     }
+
+                // }
+
+                // console.log(td.innerText)
+            }
+        }//onclick over
+
+
+        document.onkeydown = event => {
+            calc(event.key)
+            // if (event.key === 'Enter') {
+            //     //執行算式
+            //     input.innerText = eval(input.innerText)
+            // } else if (
+            //     !isNaN(parseInt(event.key)) ||
+            //     event.key === '+' ||
+            //     event.key === '-' ||
+            //     event.key === '*' ||
+            //     event.key === '/' ||
+            //     event.key === '.'
+            // ) {
+            //     if (input.innerText === '0') {
+            //         input.innerText = event.key
+            //     } else {
+            //         if(!isNaN(input.innerText[input.innerText.length-1]) ||  !isNaN(parseInt(event.key))){
+            //                 input.innerText+=event.key
+            //             //判斷最後一個字為數字 or key為數字時，才可以增加event.key。
+            
+            //         }
+            
+            //     }
+            // } else if (event.key === 'Backspace') {
+            //     //Backspace 設為返回
+            //     input.innerText = input.innerText.substring(0, input.innerText.length - 1)//.substring(保留範圍)
+            //     if (input.innerText.length === 0) {
+            //         input.innerText = '0'
+            //     }
+            // } else if (event.key === 'c' || event.key === 'C') { //大小寫c -> reset
+            //     input.innerText = '0'
+
+            // }
+
+            // //onkeydown 效果(數字部分
+            // if (!isNaN(parseInt(event.key))) {
+            //     document.getElementById('td' + event.key).style.background = "pink"
+            //     setTimeout(() => { document.getElementById('td' + event.key).style.background = "transparent" }, 50)
+            // }
+
+            // //onkeydown 效果(字符部分)
+            // if (event.key === '/') {
+            //     document.getElementById('tda').style.background = "pink"
+            //     setTimeout(() => { document.getElementById('tda').style.background = "transparent" }, 50)
+            // } else if (event.key === '*') {
+            //     document.getElementById('tdb').style.background = "pink"
+            //     setTimeout(() => { document.getElementById('tdb').style.background = "transparent" }, 50)
+            // } else if (event.key === 'Backspace') {
+            //     document.getElementById('tde').style.background = "pink"
+            //     setTimeout(() => { document.getElementById('tde').style.background = "transparent" }, 50)
+            // } else if (event.key === '-') {
+            //     document.getElementById('tdf').style.background = "pink"
+            //     setTimeout(() => { document.getElementById('tdf').style.background = "transparent" }, 50)
+            // } else if (event.key === '+') {
+            //     document.getElementById('tdg').style.background = "pink"
+            //     setTimeout(() => { document.getElementById('tdg').style.background = "transparent" }, 50)
+            // } else if (event.key === '=' || event.key === 'Enter') {
+            //     document.getElementById('tdh').style.background = "pink"
+            //     setTimeout(() => { document.getElementById('tdh').style.background = "transparent" }, 50)
+            // } else if (event.key === '.') {
+            //     document.getElementById('tdi').style.background = "pink"
+            //     setTimeout(() => { document.getElementById('tdi').style.background = "transparent" }, 50)
+            // } else if (event.key === 'c' || event.key === 'C') {
+            //     document.getElementById('tdc').style.background = "pink"
+            //     setTimeout(() => { document.getElementById('tdc').style.background = "transparent" }, 50)
+            // }
+
+
+
+        }//onkeydown over
+
+        const calc =(value)=>{
+
+                        //onkeydown 效果(數字部分
+                        if (!isNaN(parseInt(value))) {
+                document.getElementById('td' + value).style.background = "pink"
+                setTimeout(() => { document.getElementById('td' + value).style.background = "transparent" }, 50)
+            }
+
+            //onkeydown 效果(字符部分)
+            if (value === '/') {
+                document.getElementById('tda').style.background = "pink"
+                setTimeout(() => { document.getElementById('tda').style.background = "transparent" }, 50)
+            } else if (value === '*') {
+                document.getElementById('tdb').style.background = "pink"
+                setTimeout(() => { document.getElementById('tdb').style.background = "transparent" }, 50)
+            } else if (value === 'Backspace' ||value === '') {
+                document.getElementById('tde').style.background = "pink"
+                setTimeout(() => { document.getElementById('tde').style.background = "transparent" }, 50)
+            } else if (value === '-') {
+                document.getElementById('tdf').style.background = "pink"
+                setTimeout(() => { document.getElementById('tdf').style.background = "transparent" }, 50)
+            } else if (value === '+') {
+                document.getElementById('tdg').style.background = "pink"
+                setTimeout(() => { document.getElementById('tdg').style.background = "transparent" }, 50)
+            } else if (value === '=' || value === 'Enter') {
+                document.getElementById('tdh').style.background = "pink"
+                setTimeout(() => { document.getElementById('tdh').style.background = "transparent" }, 50)
+            } else if (value === '.') {
+                document.getElementById('tdi').style.background = "pink"
+                setTimeout(() => { document.getElementById('tdi').style.background = "transparent" }, 50)
+            } else if (value === 'c' || value === 'C') {
+                document.getElementById('tdc').style.background = "pink"
+                setTimeout(() => { document.getElementById('tdc').style.background = "transparent" }, 50)
+            }
+
+
+            if (value === 'Enter' || value==='=') {
+                //執行算式
+                input.innerText = eval(input.innerText)
+            } else if (
+                !isNaN(parseInt(value)) ||
+                value === '+' ||
+                value === '-' ||
+                value === '*' ||
+                value === '/' ||
+                value === '.'
+            ) {
+                if (input.innerText === '0') {
+                    input.innerText = value
+                } else {
+                    if(!isNaN(input.innerText[input.innerText.length-1]) ||  !isNaN(parseInt(value))){
+                            input.innerText+=value
+                        //判斷最後一個字為數字 or key為數字時，才可以增加value。
+                        
+                    }
+                    
+                }
+            } else if (value === 'Backspace' || value==='') {
+                //Backspace 設為返回
+                input.innerText = input.innerText.substring(0, input.innerText.length - 1)//.substring(保留範圍)
+                if (input.innerText.length === 0) {
+                    input.innerText = '0'
+                }
+            } else if (value === 'c' || value === 'C') { //大小寫c -> reset
+                input.innerText = '0'
+
+            }
+
+
+            console.log(value)
+            
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
