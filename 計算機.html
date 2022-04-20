@@ -11,6 +11,12 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        * {
+            cursor: url(https://cur.cursors-4u.net/nature/nat-8/nat719.cur), auto !important;
+        }
+
+        /*增加鼠標*/
+
         html,
         body {
             width: 100%;
@@ -18,18 +24,21 @@
             background: url(https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80) no-repeat fixed top/cover;
         }
 
+        #container {
+            padding: 15%;
+        }
 
         table {
-            margin: 10%;
-            width: 500px;
-            height: 500px;
+            /* margin: 10%; */
+            width: 400px;
+            height: 400px;
             font-family: 'Oxanium', cursive;
             font-size: 36px;
 
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(132, 128, 128, 0.8);
             border-radius: 5%;
             /* box-shadow: 5px 5px 10px rgba(0,0,0,0.5); */
-            /* filter: drop-shadow(5px 5px 6px rgba(255, 255, 255, 0.8)); */
+            filter: drop-shadow(5px 5px 6px rgba(0, 0, 0, 0.8));
             border-collapse: separate;
             border-spacing: 20px;
         }
@@ -63,7 +72,7 @@
         }
 
         td:hover {
-            background: rgb(255, 255, 255);
+
             color: black;
             border-radius: 10%;
 
@@ -79,7 +88,7 @@
             color: white;
         }
 
-        #loading{
+        #loading {
             width: 100%;
             height: 100%;
             position: fixed;
@@ -87,18 +96,23 @@
             color: white;
             text-align: center;
             display: table;
-            transition:  opacity .5s;
+            transition: opacity .5s;
+            z-index: 1;
         }
 
-        #loading-content{
+        #loading-content {
             display: table-cell;
             vertical-align: middle;
         }
 
-        img{
+        img {
             width: 300px;
         }
 
+        #vol {
+            margin-left: 10%;
+            margin-top: 5%;
+        }
     </style>
 </head>
 
@@ -112,10 +126,7 @@
     </div>
 
 
-    <div>
-        <input id="vol" type="range" max="10" min="0" value="10">
-        <i id="span" class="fa-solid fa-volume-high"></i>
-
+    <div id="container">
         <table>
 
             <tr>
@@ -152,7 +163,12 @@
                 <td id="tdi">.</td>
 
             </tr>
+
         </table>
+
+
+        <input id="vol" type="range" max="10" min="0" value="5">
+        <i id="span" style="font-size: 20px;" class="fa-solid fa-volume-high"></i>
 
 
     </div>
@@ -162,10 +178,13 @@
         const loading = document.getElementById('loading')
         window.onload = () => {
             console.log('window onload')
-            loading.style.opacity = 0
             setTimeout(() => {
-                loading.style.display = 'none'
-            }, 500);
+                loading.style.opacity = 0
+                setTimeout(() => {
+                    loading.style.display = 'none'
+                }, 500);
+
+            }, 500)
         }
         document.onreadystatechange = () => {
             console.log(document.readyState)
@@ -190,13 +209,13 @@
 
             if (vol.value <= 10 && vol.value > 5) {
                 span.classList.add('fa-volume-high')//add class
-                // span.innerHTML = `<i class="fa-solid fa-volume-high"></i>`
+
             } else if (vol.value == 0) {
                 span.classList.add(`fa-volume-xmark`)
-                // span.innerHTML = `<i class="fa-solid fa-volume-xmark"></i>`
+
             } else {
                 span.classList.add(`fa-volume-low`)
-                // span.innerHTML = `<i class="fa-solid fa-volume"></i>`
+
             }
 
 
@@ -211,20 +230,15 @@
             td.onclick = () => {
                 const text = td.innerText
                 calc(text)
-                v.volume = vol.value * 0.1
-                v.play()//+上老師的喵喵叫
+
             }//onclick over
 
 
             document.onkeydown = event => {
                 calc(event.key)
-                v.volume = vol.value * 0.1
-                v.play()//+上老師的喵喵叫
             }//onkeydown over
 
 
-            // v.src = "https://rogeraabbccdd.github.io/F2E-book/assets/ch12/meow.mp3";
-            // v.play()
 
             //calc()開始
             const calc = (value) => {
@@ -240,6 +254,10 @@
                 if (value === 'Enter' || value === '=') {
                     //執行算式
                     input.innerText = eval(input.innerText)
+                    v.volume = vol.value * 0.1
+                    v.pause();
+                    v.currentTime = 0;
+                    v.play()//+上老師的喵喵叫
 
                 } else if (
                     !isNaN(parseInt(value)) ||
@@ -260,6 +278,10 @@
                                 //修正+-*/重複疊加造成式子失敗現象
                             }
                         }
+                        v.volume = vol.value * 0.1
+                        v.pause();
+                        v.currentTime = 0;
+                        v.play()//+上老師的喵喵叫
                     }
                 } else if (value === 'Backspace' || value === '') {
                     //Backspace 設為返回
@@ -267,45 +289,78 @@
                     if (input.innerText.length === 0) {
                         input.innerText = '0'
                     }
+                    v.volume = vol.value * 0.1
+                    v.pause();
+                    v.currentTime = 0;
+                    v.play()//+上老師的喵喵叫
                 } else if (value === 'c' || value === 'C') { //大小寫c -> reset
                     input.innerText = '0'
+                    v.volume = vol.value * 0.1
+                    v.pause();
+                    v.currentTime = 0;
+                    v.play()//+上老師的喵喵叫
 
                 }
 
                 // 效果(數字部分
                 if (!isNaN(parseInt(value))) {
-                    document.getElementById('td' + value).style.background = "white"
+                    document.getElementById('td' + value).innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
                         document.getElementById('td' + value).style.background = "rgba(255, 255, 255, 0.3)"
-
+                        document.getElementById('td' + value).innerText = value
                     }, 50)
                 }
 
                 // 效果(字符部分)
                 if (value === '/') {
-                    document.getElementById('tda').style.background = "white"
-                    setTimeout(() => { document.getElementById('tda').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                    // document.getElementById('tda').style.background = "white"
+                    document.getElementById('tda').innerHTML = `<i class="fa-solid fa-paw"></i>`
+                    setTimeout(() => {
+                        document.getElementById('tda').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tda').innerText = "/"
+                    }, 50)
                 } else if (value === '*') {
-                    document.getElementById('tdb').style.background = "white"
-                    setTimeout(() => { document.getElementById('tdb').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
-                } else if (value === 'Backspace') {
-                    document.getElementById('tde').style.background = "white"
-                    setTimeout(() => { document.getElementById('tde').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                    document.getElementById('tdb').innerHTML = `<i class="fa-solid fa-paw"></i>`
+                    setTimeout(() => {
+                        document.getElementById('tdb').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdb').innerText = "*"
+                    }, 50)
+                } else if (value === 'Backspace' || value === "") {
+                    document.getElementById('tde').innerHTML = `<i class="fa-solid fa-paw"></i>`
+                    setTimeout(() => {
+                        document.getElementById('tde').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tde').innerHTML = `<i class="fa-solid fa-delete-left"></i>`
+                    }, 50)
                 } else if (value === '-') {
-                    document.getElementById('tdf').style.background = "white"
-                    setTimeout(() => { document.getElementById('tdf').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                    document.getElementById('tdf').innerHTML = `<i class="fa-solid fa-paw"></i>`
+                    setTimeout(() => {
+                        document.getElementById('tdf').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdf').innerText = "-"
+                    }, 50)
                 } else if (value === '+') {
-                    document.getElementById('tdg').style.background = "white"
-                    setTimeout(() => { document.getElementById('tdg').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                    document.getElementById('tdg').innerHTML = `<i class="fa-solid fa-paw"></i>`
+                    setTimeout(() => {
+                        document.getElementById('tdg').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdg').innerText = "+"
+                    }, 50)
                 } else if (value === '=' || value === 'Enter') {
-                    document.getElementById('tdh').style.background = "white"
-                    setTimeout(() => { document.getElementById('tdh').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                    document.getElementById('tdh').innerHTML = `<i class="fa-solid fa-paw"></i>`
+                    setTimeout(() => {
+                        document.getElementById('tdh').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdh').innerText = "="
+                    }, 50)
                 } else if (value === '.') {
-                    document.getElementById('tdi').style.background = "white"
-                    setTimeout(() => { document.getElementById('tdi').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                    document.getElementById('tdi').innerHTML = `<i class="fa-solid fa-paw"></i>`
+                    setTimeout(() => {
+                        document.getElementById('tdi').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdi').innerText = "."
+                    }, 50)
                 } else if (value === 'c' || value === 'C') {
-                    document.getElementById('tdc').style.background = "white"
-                    setTimeout(() => { document.getElementById('tdc').style.background = "rgba(255, 255, 255, 0.3)" }, 50)
+                    document.getElementById('tdc').innerHTML = `<i class="fa-solid fa-paw"></i>`
+                    setTimeout(() => {
+                        document.getElementById('tdc').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdc').innerText = "C"
+                    }, 50)
                 }
                 console.log(value)
             }//calc()結束
