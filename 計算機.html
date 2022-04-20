@@ -28,7 +28,7 @@
 
         #container {
             margin: 0;
-            padding: 5% 20% ;
+            padding: 5% 20%;
         }
 
         table {
@@ -95,8 +95,8 @@
             width: 100%;
             height: 100%;
             position: fixed;
-            background: gray;
-            color: white;
+            background: rgb(255, 255, 255);
+            color: rgb(255, 198, 198);
             text-align: center;
             display: table;
             transition: opacity .5s;
@@ -109,13 +109,51 @@
         }
 
         img {
-            width: 300px;
+            width: 200px;
         }
 
         #vol {
             margin-left: 10%;
             margin-top: 5%;
         }
+
+        #bg_left i:hover {
+            transform: translate(-30px, 0);
+            transition: 2s;
+            filter: drop-shadow(3px 3px 5px rgba(255, 255, 255, 0.8));
+        }
+
+        #bg_right i:hover {
+            transform: translate(30px, 0);
+            transition: 2s;
+            text-shadow: 0px 0px 20px rgb(255, 255, 255);
+
+        }
+
+        #span:hover {
+            transform: scale(0.8);
+            transition: 2s;
+            text-shadow: 0px 0px 20px rgb(255, 255, 255);
+            cursor: pointer;
+
+        }
+
+        /* @keyframes animation-a{
+            0%{
+                transform: translate(0,0) ;
+            }
+            100%{
+                transform: translate(-30px,0) ;
+            }
+        }
+        .animation{
+            animation-name: animation-a;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: normal;
+            animation-play-state: running;
+        } */
     </style>
 </head>
 
@@ -124,7 +162,7 @@
     <div id="loading">
         <div id="loading-content">
             <img src="eee.svg" alt="">
-            <h1>載入中</h1>
+            <h1>Loading...</h1>
         </div>
     </div>
 
@@ -175,12 +213,51 @@
 
 
     </div>
+    <span id="bg_right" style="display: inline-block ;position: absolute;top:50% ; right: 5%;font-size: 25px;"><i
+            class="fa-solid fa-angles-right "></i></span>
+    <span id="bg_left" class="animation"
+        style="display: inline-block ;position: absolute;top:50% ; left: 5%;font-size: 25px;"><i
+            class="fa-solid fa-angles-left "></i></span>
+
+
 
     <script>
 
+        //可更換背景
+        let index = 0
+
+        const bg_cats = [
+            `https://images.unsplash.com/photo-1442291928580-fb5d0856a8f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80`,
+            `https://images.unsplash.com/photo-1574066630849-9f73eb97e2dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1036&q=80`,
+            `https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
+            `https://images.unsplash.com/photo-1529257414772-1960b7bea4eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
+        ]
+
+        document.getElementById('bg_right').onclick = () => {
+            document.querySelector('body').style.background = `url(${bg_cats[index]}) no-repeat fixed top/cover`
+            index++
+            if (index > 3) {
+                index = 0
+            }
+
+        }
+        document.getElementById('bg_left').onclick = () => {
+            document.querySelector('body').style.background = `url(${bg_cats[index]}) no-repeat fixed top/cover`
+            index--
+            if (index < 0) {
+                index = 3
+            }
+
+            if (index === 1) {
+                document.querySelector('i').style.color = "black"
+            }
+
+        }
+
+        // loading部分
         const loading = document.getElementById('loading')
         window.onload = () => {
-            console.log('window onload')
+            // console.log('window onload')
             setTimeout(() => {
                 loading.style.opacity = 0
                 setTimeout(() => {
@@ -189,18 +266,20 @@
 
             }, 500)
         }
-        document.onreadystatechange = () => {
-            console.log(document.readyState)
-        }
 
 
+
+
+        //取值
         const span = document.getElementById('span')
         const input = document.getElementById('input')
         const tds = document.querySelectorAll('td:not(#input)')
         const vol = document.getElementById('vol')
+
         const v = new Audio();//+上老師的喵喵叫
         v.src = "https://rogeraabbccdd.github.io/F2E-book/assets/ch12/meow.mp3";
         v.volume = vol.value * 0.1
+
 
 
 
@@ -220,11 +299,22 @@
                 span.classList.add(`fa-volume-low`)
 
             }
-
-
         }
 
+        span.onclick = () => {
+            span.classList.remove('fa-volume-high') //移除class
+            span.classList.remove('fa-volume-xmark')//更改的時候再刪除原本的class
+            span.classList.remove('fa-volume-low')
+            if (vol.value <= 0) {
+                vol.value = 5
+                span.classList.add(`fa-volume-low`)
+                
+            } else {
 
+                vol.value = 0
+                span.classList.add(`fa-volume-xmark`)
+            }
+        }
 
 
 
