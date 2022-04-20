@@ -19,23 +19,26 @@
 
         html,
         body {
+            margin: 0;
+            padding: 0;
             width: 100%;
             height: 100%;
             background: url(https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80) no-repeat fixed top/cover;
         }
 
         #container {
-            padding: 15%;
+            margin: 0;
+            padding: 5% 20% ;
         }
 
         table {
             /* margin: 10%; */
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             font-family: 'Oxanium', cursive;
-            font-size: 36px;
+            font-size: 24px;
 
-            background: rgba(132, 128, 128, 0.8);
+            background: rgba(186, 151, 117, 0.8);
             border-radius: 5%;
             /* box-shadow: 5px 5px 10px rgba(0,0,0,0.5); */
             filter: drop-shadow(5px 5px 6px rgba(0, 0, 0, 0.8));
@@ -45,16 +48,16 @@
 
         td {
 
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             /* border: 1px solid rgb(156, 156, 156); */
             text-align: center;
             vertical-align: middle;
             color: white;
             border-radius: 10%;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.5);
 
-            box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.8);
+            box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
             filter: drop-shadow(5px 5px 6px rgba(86, 86, 86, 0.8));
 
 
@@ -64,7 +67,7 @@
         #input {
             text-align: right;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.5);
             /* border-radius: 0%; */
 
 
@@ -167,8 +170,8 @@
         </table>
 
 
-        <input id="vol" type="range" max="10" min="0" value="5">
-        <i id="span" style="font-size: 20px;" class="fa-solid fa-volume-high"></i>
+        <input id="vol" type="range" max="10" min="0" value="3">
+        <i id="span" style="font-size: 20px;" class="fa-solid fa-volume-low"></i>
 
 
     </div>
@@ -245,10 +248,10 @@
 
 
                 //字串過長時，縮小字體
-                if (input.innerText.length > 11) {
+                if (input.innerText.length > 13) {
                     input.style.fontSize = "20px"
-                } else if (input.innerText.length < 10) {
-                    input.style.fontSize = "36px"
+                } else if (input.innerText.length < 14) {
+                    input.style.fontSize = "24px"
                 }
 
                 if (value === 'Enter' || value === '=') {
@@ -267,7 +270,7 @@
                     value === '/' ||
                     value === '.'
                 ) {
-                    if (input.innerText.length < 22) { //限制字串長度避免寬度變形
+                    if (input.innerText.length < 19) { //限制字串長度避免寬度變形
 
                         if (input.innerText === '0') {
                             input.innerText = value
@@ -306,9 +309,9 @@
                 if (!isNaN(parseInt(value))) {
                     document.getElementById('td' + value).innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
-                        document.getElementById('td' + value).style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('td' + value).style.background = "rgba(255, 255, 255, 0.5)"
                         document.getElementById('td' + value).innerText = value
-                    }, 50)
+                    }, 100)
                 }
 
                 // 效果(字符部分)
@@ -316,51 +319,51 @@
                     // document.getElementById('tda').style.background = "white"
                     document.getElementById('tda').innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
-                        document.getElementById('tda').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tda').style.background = "rgba(255, 255, 255, 0.5)"
                         document.getElementById('tda').innerText = "/"
-                    }, 50)
+                    }, 100)
                 } else if (value === '*') {
                     document.getElementById('tdb').innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
-                        document.getElementById('tdb').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdb').style.background = "rgba(255, 255, 255, 0.5)"
                         document.getElementById('tdb').innerText = "*"
-                    }, 50)
+                    }, 100)
                 } else if (value === 'Backspace' || value === "") {
                     document.getElementById('tde').innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
-                        document.getElementById('tde').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tde').style.background = "rgba(255, 255, 255, 0.5)"
                         document.getElementById('tde').innerHTML = `<i class="fa-solid fa-delete-left"></i>`
-                    }, 50)
+                    }, 100)
                 } else if (value === '-') {
                     document.getElementById('tdf').innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
-                        document.getElementById('tdf').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdf').style.background = "rgba(255, 255, 255, 0.5)"
                         document.getElementById('tdf').innerText = "-"
-                    }, 50)
+                    }, 100)
                 } else if (value === '+') {
                     document.getElementById('tdg').innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
-                        document.getElementById('tdg').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdg').style.background = "rgba(255, 255, 255, 0.5)"
                         document.getElementById('tdg').innerText = "+"
-                    }, 50)
+                    }, 100)
                 } else if (value === '=' || value === 'Enter') {
                     document.getElementById('tdh').innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
-                        document.getElementById('tdh').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdh').style.background = "rgba(255, 255, 255, 0.5)"
                         document.getElementById('tdh').innerText = "="
-                    }, 50)
+                    }, 100)
                 } else if (value === '.') {
                     document.getElementById('tdi').innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
-                        document.getElementById('tdi').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdi').style.background = "rgba(255, 255, 255, 0.5)"
                         document.getElementById('tdi').innerText = "."
-                    }, 50)
+                    }, 100)
                 } else if (value === 'c' || value === 'C') {
                     document.getElementById('tdc').innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
-                        document.getElementById('tdc').style.background = "rgba(255, 255, 255, 0.3)"
+                        document.getElementById('tdc').style.background = "rgba(255, 255, 255, 0.5)"
                         document.getElementById('tdc').innerText = "C"
-                    }, 50)
+                    }, 100)
                 }
                 console.log(value)
             }//calc()結束
