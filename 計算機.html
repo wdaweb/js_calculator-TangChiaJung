@@ -23,7 +23,7 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            background: url(https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80) no-repeat fixed top/cover;
+            /* background: url(https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80) no-repeat fixed top/cover; */
         }
 
         #container {
@@ -118,13 +118,13 @@
         }
 
         #bg_left i:hover {
-            transform: translate(-30px, 0);
+            transform: translate(-5px, 0);
             transition: 2s;
             filter: drop-shadow(3px 3px 5px rgba(255, 255, 255, 0.8));
         }
 
         #bg_right i:hover {
-            transform: translate(30px, 0);
+            transform: translate(5px, 0);
             transition: 2s;
             text-shadow: 0px 0px 20px rgb(255, 255, 255);
 
@@ -213,25 +213,26 @@
 
 
     </div>
-    <span id="bg_right" style="display: inline-block ;position: absolute;top:50% ; right: 5%;font-size: 25px;"><i
-            class="fa-solid fa-angles-right "></i></span>
-    <span id="bg_left" class="animation"
+    <div id="bg_right" style="display: inline-block ;position: absolute;top:50% ; right: 5%;font-size: 25px;"><i
+            class="fa-solid fa-angles-right "></i></div>
+    <div id="bg_left" class="animation"
         style="display: inline-block ;position: absolute;top:50% ; left: 5%;font-size: 25px;"><i
-            class="fa-solid fa-angles-left "></i></span>
+            class="fa-solid fa-angles-left "></i></div>
 
 
 
     <script>
-
         //可更換背景
         let index = 0
-
+        
         const bg_cats = [
+            `https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
             `https://images.unsplash.com/photo-1442291928580-fb5d0856a8f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80`,
             `https://images.unsplash.com/photo-1574066630849-9f73eb97e2dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1036&q=80`,
-            `https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
             `https://images.unsplash.com/photo-1529257414772-1960b7bea4eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
         ]
+
+        document.querySelector('body').style.background=`url(${bg_cats[0]}) no-repeat fixed top/cover`
 
         document.getElementById('bg_right').onclick = () => {
             document.querySelector('body').style.background = `url(${bg_cats[index]}) no-repeat fixed top/cover`
@@ -246,10 +247,6 @@
             index--
             if (index < 0) {
                 index = 3
-            }
-
-            if (index === 1) {
-                document.querySelector('i').style.color = "black"
             }
 
         }
@@ -325,6 +322,8 @@
                 calc(text)
 
             }//onclick over
+        }
+            
 
 
             document.onkeydown = event => {
@@ -350,7 +349,7 @@
                     v.volume = vol.value * 0.1
                     v.pause();
                     v.currentTime = 0;
-                    v.play()//+上老師的喵喵叫
+                    v.play()//+上老師的喵喵叫音檔
 
                 } else if (
                     !isNaN(parseInt(value)) ||
@@ -363,7 +362,11 @@
                     if (input.innerText.length < 19) { //限制字串長度避免寬度變形
 
                         if (input.innerText === '0') {
-                            input.innerText = value
+                            if(value === '.'){ //解決無法key 0.XXX數字
+                                input.innerText+='.'
+                            }else{
+                                input.innerText = value
+                            }
                         } else {
                             if (!isNaN(input.innerText[input.innerText.length - 1]) || !isNaN(parseInt(value))) {
                                 input.innerText += value
@@ -396,7 +399,7 @@
                 }
 
                 // 效果(數字部分
-                if (!isNaN(parseInt(value))) {
+                if (!isNaN(parseInt(value))) {//發動後
                     document.getElementById('td' + value).innerHTML = `<i class="fa-solid fa-paw"></i>`
                     setTimeout(() => {
                         document.getElementById('td' + value).style.background = "rgba(255, 255, 255, 0.5)"
@@ -458,7 +461,7 @@
                 console.log(value)
             }//calc()結束
 
-        }
+        
 
     </script>
 
