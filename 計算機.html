@@ -2,143 +2,180 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>20220419-計算機</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oxanium&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        * {
-            cursor: url(https://cur.cursors-4u.net/nature/nat-8/nat719.cur), auto !important;
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20220419-計算機</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      cursor: url(https://cur.cursors-4u.net/nature/nat-8/nat719.cur), auto !important;
+    }
 
-        /*增加鼠標*/
+    /*增加鼠標*/
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            /* background: url(https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80) no-repeat fixed top/cover; */
-        }
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-        #container {
-            margin: 0;
-            padding: 5% 20%;
-        }
+    #container {
+      margin: 0;
+      padding: 5% 20%;
 
-        table {
-            /* margin: 10%; */
-            width: 300px;
-            height: 300px;
-            font-family: 'Oxanium', cursive;
-            font-size: 24px;
+    }
 
-            background: rgba(186, 151, 117, 0.8);
-            border-radius: 5%;
-            /* box-shadow: 5px 5px 10px rgba(0,0,0,0.5); */
-            filter: drop-shadow(5px 5px 6px rgba(0, 0, 0, 0.8));
-            border-collapse: separate;
-            border-spacing: 20px;
-        }
+    table {
+      width: 300px;
+      height: 400px;
+      font-family: 'Oxanium', cursive;
+      font-size: 24px;
+      background: rgba(186, 151, 117, 0.8);
+      border-radius: 5%;
+      box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
+      /* filter: drop-shadow(5px 5px 6px rgba(70, 70, 70, 0.8)); */
+      border-collapse: separate;
+      border-spacing: 5px;
+      padding: 15px;
+    }
 
-        td {
+    td {
+      width: 40px;
+      height: 40px;
+      /* border: 3px solid rgb(10, 10, 10); */
+      text-align: center;
+      vertical-align: middle;
+      color: white;
+      border-radius: 10%;
+      /* background: rgba(255, 255, 255, 0.5); */
+      background: linear-gradient(50deg, rgb(0, 0, 0), rgb(120, 119, 119));
+      /*深->淺*/
 
-            width: 40px;
-            height: 40px;
-            /* border: 1px solid rgb(156, 156, 156); */
-            text-align: center;
-            vertical-align: middle;
-            color: white;
-            border-radius: 10%;
-            background: rgba(255, 255, 255, 0.5);
+      box-shadow: -1px 1px 1px rgba(62, 62, 62, 0.5);
+      /* filter: drop-shadow(-5px 5px 6px rgba(86, 86, 86, 0.8)); */
+      position: relative;
+    }
 
-            box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
-            filter: drop-shadow(5px 5px 6px rgba(86, 86, 86, 0.8));
+    #tdh,
+    #td0 {
+      border-radius: 5%;
+    }
+
+    div .td_bg {
+      background: linear-gradient(210deg, rgb(59, 59, 59), rgb(77, 77, 77), rgb(66, 66, 66));
+      width: 45px;
+      height: 35px;
+      border-radius: 5%;
+      position: absolute;
+      right: 3px;
+      top: 4px;
+    }
+
+    .td_bg2 {
+
+      background: linear-gradient(210deg, rgb(59, 59, 59), rgb(77, 77, 77), rgb(66, 66, 66));
+      /*深->淺*/
+      width: 45px;
+      height: 80px;
+      border-radius: 5%;
+      position: absolute;
+      right: 3px;
+      top: 4.5px;
+    }
+
+    .td_bg3 {
+
+      background:linear-gradient(210deg, rgb(59, 59, 59), rgb(77, 77, 77), rgb(66, 66, 66));
+      /*深->淺*/
+      width: 110px;
+      height: 35px;
+      border-radius: 5%;
+      position: absolute;
+      right: 3px;
+      top: 4.5px;
+    }
 
 
-        }
+    td:hover {
+
+      color: black;
+      border-radius: 5%;
+
+    }
+
+    #input {
+      text-align: right;
+      border-radius: 5%;
+      padding: 5px;
+      background: rgb(0, 0, 0);
+      border: 3px solid rgb(10, 10, 10);
+    }
 
 
-        #input {
-            text-align: right;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.5);
-            /* border-radius: 0%; */
+    #input:hover {
+      color: white;
+      border-radius: 5%;
+    }
 
+    span,
+    i {
+      color: white;
+    }
 
+    #loading {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      background: rgb(255, 255, 255);
+      color: rgb(255, 198, 198);
+      text-align: center;
+      display: table;
+      transition: opacity .5s;
+      z-index: 1;
+    }
 
-        }
+    #loading-content {
+      display: table-cell;
+      vertical-align: middle;
+    }
 
-        td:hover {
+    img {
+      width: 200px;
+    }
 
-            color: black;
-            border-radius: 10%;
+    #vol {
+      margin-left: 10%;
+      margin-top: 5%;
+    }
 
-        }
+    #bg_left i:hover {
+      transform: translate(-5px, 0);
+      transition: 2s;
+      filter: drop-shadow(3px 3px 5px rgba(255, 255, 255, 0.8));
+    }
 
-        #input:hover {
-            color: white;
-            border-radius: 10%;
-        }
+    #bg_right i:hover {
+      transform: translate(5px, 0);
+      transition: 2s;
+      text-shadow: 0px 0px 20px rgb(255, 255, 255);
 
-        span,
-        i {
-            color: white;
-        }
+    }
 
-        #loading {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            background: rgb(255, 255, 255);
-            color: rgb(255, 198, 198);
-            text-align: center;
-            display: table;
-            transition: opacity .5s;
-            z-index: 1;
-        }
+    #span:hover {
+      transform: scale(0.8);
+      transition: 2s;
+      text-shadow: 0px 0px 20px rgb(255, 255, 255);
+      cursor: pointer;
 
-        #loading-content {
-            display: table-cell;
-            vertical-align: middle;
-        }
+    }
 
-        img {
-            width: 200px;
-        }
-
-        #vol {
-            margin-left: 10%;
-            margin-top: 5%;
-        }
-
-        #bg_left i:hover {
-            transform: translate(-5px, 0);
-            transition: 2s;
-            filter: drop-shadow(3px 3px 5px rgba(255, 255, 255, 0.8));
-        }
-
-        #bg_right i:hover {
-            transform: translate(5px, 0);
-            transition: 2s;
-            text-shadow: 0px 0px 20px rgb(255, 255, 255);
-
-        }
-
-        #span:hover {
-            transform: scale(0.8);
-            transition: 2s;
-            text-shadow: 0px 0px 20px rgb(255, 255, 255);
-            cursor: pointer;
-
-        }
-
-        /* @keyframes animation-a{
+    /* @keyframes animation-a{
             0%{
                 transform: translate(0,0) ;
             }
@@ -154,315 +191,407 @@
             animation-direction: normal;
             animation-play-state: running;
         } */
-    </style>
+  </style>
 </head>
 
 <body>
 
-    <div id="loading">
-        <div id="loading-content">
-            <img src="eee.svg" alt="">
-            <h1>Loading...</h1>
-        </div>
+  <div id="loading">
+    <div id="loading-content">
+      <img src="eee.svg" alt="">
+      <h1>Loading...</h1>
     </div>
+  </div>
 
 
-    <div id="container">
-        <table>
+  <div id="container">
+    <table>
 
-            <tr>
-                <td colspan="4" id="input">0</td>
+      <tr>
+        <td colspan="4" id="input">0</td>
 
-            </tr>
+      </tr>
 
-            <tr>
-                <td id="tdc">C</td>
-                <td id="tda">/</td>
-                <td id="tdb">*</td>
-                <td id="tde"><i class="fa-solid fa-delete-left"></i></td>
-            </tr>
-            <tr>
-                <td id="td7">7</td>
-                <td id="td8">8</td>
-                <td id="td9">9</td>
-                <td id="tdf">-</td>
-            </tr>
-            <tr>
-                <td id="td4">4</td>
-                <td id="td5">5</td>
-                <td id="td6">6</td>
-                <td id="tdg">+</td>
-            </tr>
-            <tr>
-                <td id="td1">1</td>
-                <td id="td2">2</td>
-                <td id="td3">3</td>
-                <td id="tdh" rowspan="2">=</td>
-            </tr>
-            <tr>
-                <td colspan="2" id="td0">0</td>
-                <td id="tdi">.</td>
+      <tr>
+        <td >
+          <div id="tdc" class="td_bg">c</div>
+        </td>
+        <td >
+          <div id="tda" class="td_bg">/</div>
+        </td>
+        <td >
+          <div id="tdb" class="td_bg">*</div>
+        </td>
+        <td >
+          <div id="tde" class="td_bg"><i class="fa-solid fa-delete-left"></i></div>
+        </td>
+      </tr>
+      <tr>
+        <td >
+          <div id="td7" class="td_bg">7</div>
+        </td>
+        <td >
+          <div id="td8" class="td_bg">8</div>
+        </td>
+        <td >
+          <div id="td9" class="td_bg">9</div>
+        </td>
+        <td >
+          <div id="tdf" class="td_bg">-</div>
+        </td>
+      </tr>
+      <tr>
+        <td >
+          <div id="td4" class="td_bg">4</div>
+        </td>
+        <td >
+          <div id="td5" class="td_bg">5</div>
+        </td>
+        <td >
+          <div id="td6" class="td_bg">6</div>
+        </td>
+        <td >
+          <div id="tdg" class="td_bg">+</div>
+        </td>
+      </tr>
+      <tr>
+        <td >
+          <div id="td1" class="td_bg">1</div>
+        </td>
+        <td >
+          <div id="td2" class="td_bg">2</div>
+        </td>
+        <td >
+          <div id="td3" class="td_bg">3</div>
+        </td>
+        <td  rowspan="2">
+          <div id="tdh" class="td_bg2">=</div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" >
+          <div id="td0" class="td_bg3">0</div>
+        </td>
+        <td >
+          <div id="tdi" class="td_bg">.</div>
+        </td>
 
-            </tr>
+      </tr>
 
-        </table>
-
-
-        <input id="vol" type="range" max="10" min="0" value="3">
-        <i id="span" style="font-size: 20px;" class="fa-solid fa-volume-low"></i>
+    </table>
 
 
-    </div>
-    <div id="bg_right" style="display: inline-block ;position: absolute;top:50% ; right: 5%;font-size: 25px;"><i
-            class="fa-solid fa-angles-right "></i></div>
-    <div id="bg_left" class="animation"
-        style="display: inline-block ;position: absolute;top:50% ; left: 5%;font-size: 25px;"><i
-            class="fa-solid fa-angles-left "></i></div>
+    <input id="vol" type="range" max="10" min="0" value="3">
+    <i id="span" style="font-size: 20px;" class="fa-solid fa-volume-low"></i>
 
 
-
-    <script>
-        //可更換背景
-        let index = 0
-        
-        const bg_cats = [
-            `https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
-            `https://images.unsplash.com/photo-1442291928580-fb5d0856a8f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80`,
-            `https://images.unsplash.com/photo-1574066630849-9f73eb97e2dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1036&q=80`,
-            `https://images.unsplash.com/photo-1529257414772-1960b7bea4eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
-        ]
-
-        document.querySelector('body').style.background=`url(${bg_cats[index]}) no-repeat fixed top/cover`
-
-        document.getElementById('bg_right').onclick = () => {
-            index++
-            if (index > 3) {
-                index = 0
-            }
-            document.querySelector('body').style.background = `url(${bg_cats[index]}) no-repeat fixed top/cover`
-
-        }
-        document.getElementById('bg_left').onclick = () => {
-            index--
-            if (index < 0) {
-                index = 3
-            }
-            document.querySelector('body').style.background = `url(${bg_cats[index]}) no-repeat fixed top/cover`
-        }
-
-        // loading部分
-        const loading = document.getElementById('loading')
-        window.onload = () => {
-            // console.log('window onload')
-            setTimeout(() => {
-                loading.style.opacity = 0
-                setTimeout(() => {
-                    loading.style.display = 'none'
-                }, 500);
-
-            }, 500)
-        }
+  </div>
+  <div id="bg_right" style="display: inline-block ;position: absolute;top:50% ; right: 5%;font-size: 25px;"><i
+      class="fa-solid fa-angles-right "></i></div>
+  <div id="bg_left" class="animation"
+    style="display: inline-block ;position: absolute;top:50% ; left: 5%;font-size: 25px;"><i
+      class="fa-solid fa-angles-left "></i></div>
 
 
 
+  <script>
+    //可更換背景
+    let index = 0
 
-        //取值
-        const span = document.getElementById('span')
-        const input = document.getElementById('input')
-        const tds = document.querySelectorAll('td:not(#input)')
-        const vol = document.getElementById('vol')
+    const bg_cats = [
+      `https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
+      `https://images.unsplash.com/photo-1442291928580-fb5d0856a8f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80`,
+      `https://images.unsplash.com/photo-1574066630849-9f73eb97e2dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1036&q=80`,
+      `https://images.unsplash.com/photo-1529257414772-1960b7bea4eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80`,
+    ]
 
-        const v = new Audio();//+上老師的喵喵叫
-        v.src = "https://rogeraabbccdd.github.io/F2E-book/assets/ch12/meow.mp3";
+    document.querySelector('body').style.background = `url(${bg_cats[index]}) no-repeat fixed top/cover`
+
+    document.getElementById('bg_right').onclick = () => {
+      index++
+      if (index > 3) {
+        index = 0
+      }
+      document.querySelector('body').style.background = `url(${bg_cats[index]}) no-repeat fixed top/cover`
+
+    }
+    document.getElementById('bg_left').onclick = () => {
+      index--
+      if (index < 0) {
+        index = 3
+      }
+      document.querySelector('body').style.background = `url(${bg_cats[index]}) no-repeat fixed top/cover`
+    }
+
+    // loading部分
+    const loading = document.getElementById('loading')
+    window.onload = () => {
+      // console.log('window onload')
+      setTimeout(() => {
+        loading.style.opacity = 0
+        setTimeout(() => {
+          loading.style.display = 'none'
+        }, 100);
+
+      }, 00)
+    }
+
+
+
+
+    //取值
+    const span = document.getElementById('span')
+    const input = document.getElementById('input')
+    const tds = document.querySelectorAll('td:not(#input)')
+    const vol = document.getElementById('vol')
+
+    const v = new Audio();//+上老師的喵喵叫
+    v.src = "https://rogeraabbccdd.github.io/F2E-book/assets/ch12/meow.mp3";
+    v.volume = vol.value * 0.1
+
+
+
+
+    vol.oninput = () => {//根據音量更改icon
+
+      span.classList.remove('fa-volume-high') //移除class
+      span.classList.remove('fa-volume-xmark')//更改的時候再刪除原本的class
+      span.classList.remove('fa-volume-low')
+
+      if (vol.value <= 10 && vol.value > 5) {
+        span.classList.add('fa-volume-high')//add class
+
+      } else if (vol.value == 0) {
+        span.classList.add(`fa-volume-xmark`)
+
+      } else {
+        span.classList.add(`fa-volume-low`)
+
+      }
+    }
+
+    span.onclick = () => {
+      span.classList.remove('fa-volume-high') //移除class
+      span.classList.remove('fa-volume-xmark')//更改的時候再刪除原本的class
+      span.classList.remove('fa-volume-low')
+      if (vol.value <= 0) {
+        vol.value = 5
+        span.classList.add(`fa-volume-low`)
+
+      } else {
+
+        vol.value = 0
+        span.classList.add(`fa-volume-xmark`)
+      }
+    }
+
+
+
+    for (const td of tds) {
+
+      td.onclick = () => {
+        const text = td.innerText
+        calc(text)
+
+      }//onclick over
+    }
+
+
+
+    document.onkeydown = event => {
+      calc(event.key)
+    }//onkeydown over
+
+
+
+    //calc()開始
+    const calc = (value) => {
+
+
+      //字串過長時，縮小字體
+      if (input.innerText.length > 13) {
+        input.style.fontSize = "20px"
+      } else if (input.innerText.length < 14) {
+        input.style.fontSize = "24px"
+      }
+
+      if (value === 'Enter' || value === '=') {
+        //執行算式
+        input.innerText = eval(input.innerText)
         v.volume = vol.value * 0.1
+        v.pause();
+        v.currentTime = 0;
+        v.play()//+上老師的喵喵叫音檔
 
+      } else if (
+        !isNaN(parseInt(value)) ||
+        value === '+' ||
+        value === '-' ||
+        value === '*' ||
+        value === '/' ||
+        value === '.'
+      ) {
+        if (input.innerText.length < 19) { //限制字串長度避免寬度變形
 
-
-
-        vol.oninput = () => {//根據音量更改icon
-
-            span.classList.remove('fa-volume-high') //移除class
-            span.classList.remove('fa-volume-xmark')//更改的時候再刪除原本的class
-            span.classList.remove('fa-volume-low')
-
-            if (vol.value <= 10 && vol.value > 5) {
-                span.classList.add('fa-volume-high')//add class
-
-            } else if (vol.value == 0) {
-                span.classList.add(`fa-volume-xmark`)
-
+          if (input.innerText === '0') {
+            if (value === '.') { //解決無法key 0.XXX數字
+              input.innerText += '.'
             } else {
-                span.classList.add(`fa-volume-low`)
-
+              input.innerText = value
             }
-        }
-
-        span.onclick = () => {
-            span.classList.remove('fa-volume-high') //移除class
-            span.classList.remove('fa-volume-xmark')//更改的時候再刪除原本的class
-            span.classList.remove('fa-volume-low')
-            if (vol.value <= 0) {
-                vol.value = 5
-                span.classList.add(`fa-volume-low`)
-                
-            } else {
-
-                vol.value = 0
-                span.classList.add(`fa-volume-xmark`)
+          } else {
+            if (!isNaN(input.innerText[input.innerText.length - 1]) || !isNaN(parseInt(value))) {
+              input.innerText += value
+              //判斷最後一個字為數字 or key為數字時，才可以增加value。
+              //修正+-*/重複疊加造成式子失敗現象
             }
+          }
+          v.volume = vol.value * 0.1
+          v.pause();
+          v.currentTime = 0;
+          v.play()//+上老師的喵喵叫
         }
-
-
-
-        for (const td of tds) {
-
-            td.onclick = () => {
-                const text = td.innerText
-                calc(text)
-
-            }//onclick over
+      } else if (value === 'Backspace' || value === '') {
+        //Backspace 設為返回
+        input.innerText = input.innerText.substring(0, input.innerText.length - 1)//.substring(保留範圍)
+        if (input.innerText.length === 0) {
+          input.innerText = '0'
         }
-            
+        v.volume = vol.value * 0.1
+        v.pause();
+        v.currentTime = 0;
+        v.play()//+上老師的喵喵叫
+      } else if (value === 'c' || value === 'C') { //大小寫c -> reset
+        input.innerText = '0'
+        v.volume = vol.value * 0.1
+        v.pause();
+        v.currentTime = 0;
+        v.play()//+上老師的喵喵叫
+
+      }
 
 
-            document.onkeydown = event => {
-                calc(event.key)
-            }//onkeydown over
+
+      // let id = ''
+
+      // // 效果(數字部分
+      // if (value === '/') {
+      //     id = 'tda'
+      // } else if (value === '*') {
+      //     id = 'tdb'
+      // } else if (value === value === 'Backspace' || value === "") {
+      //     id = 'tde'
+      // } else if (value === '-') {
+      //     id = 'tdf'
+      // } else if (value === '+') {
+      //     id = 'tdg'
+      // } else if (value === '=' || value === 'Enter') {
+      //     id = 'tdh'
+      // } else if (value === '.') {
+      //     id = 'tdi'
+      // } else if (value === 'c' || vvalue === 'C') {
+      //     id = 'tdc'
+      // } else if (!isNaN(parseInt(value))) {
+      //     id = 'td' + value
+      // }
+
+
+      // if (id != '') {
+      //     document.getElementById(id).innerHTML = `<i class="fa-solid fa-paw"></i>`
+      //     setTimeout(() => {
+      //         document.getElementById(id).style.background = "rgba(255, 255, 255, 0.5)"
+
+      //         //特別字符處理 value!=圖示
+      //         switch (value) {
+      //             case 'Backspace':
+      //                 value = `<i class="fa-solid fa-delete-left"></i>`;
+      //                 break;
+      //             case '':
+      //                 value = `<i class="fa-solid fa-delete-left"></i>`;
+      //                 break;
+      //             case 'Enter':
+      //                 value = '=';
+      //                 break;
+      //         }
+
+      //         //一般value=圖示
+      //         document.getElementById(id).innerHTML = value;
+      //     }, 100)
+
+      //     v.volume = vol.value * 0.1
+      //     v.pause();
+      //     v.currentTime = 0;
+      //     v.play()
+
+      // }
+
+      if (!isNaN(parseInt(value))) {//發動後
+        document.getElementById('td' + value).innerHTML = `<i class="fa-solid fa-paw"></i>`
+        setTimeout(() => {
+          document.getElementById('td' + value).style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('td' + value).innerText = value
+          // document.querySelector('.td_bg').innerText=value
+          
+        }, 100)
+      }
+
+      // 效果(字符部分)
+      if (value === '/') {
+        // document.getElementById('tda').style.background = "white"
+        document.getElementById('tda').innerHTML = `<i class="fa-solid fa-paw"></i>`
+        setTimeout(() => {
+          document.getElementById('tda').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tda').innerText = "/"
+        }, 100)
+      } else if (value === '*') {
+        document.getElementById('tdb').innerHTML = `<i class="fa-solid fa-paw"></i>`
+        setTimeout(() => {
+          document.getElementById('tdb').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdb').innerText = "*"
+        }, 100)
+      } else if (value === 'Backspace' || value === "") {
+        document.getElementById('tde').innerHTML = `<i class="fa-solid fa-paw"></i>`
+        setTimeout(() => {
+          document.getElementById('tde').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tde').innerHTML = `<i class="fa-solid fa-delete-left"></i>`
+        }, 100)
+      } else if (value === '-') {
+        document.getElementById('tdf').innerHTML = `<i class="fa-solid fa-paw"></i>`
+        setTimeout(() => {
+          document.getElementById('tdf').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdf').innerText = "-"
+        }, 100)
+      } else if (value === '+') {
+        document.getElementById('tdg').innerHTML = `<i class="fa-solid fa-paw"></i>`
+        setTimeout(() => {
+          document.getElementById('tdg').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdg').innerText = "+"
+        }, 100)
+      } else if (value === '=' || value === 'Enter') {
+        document.getElementById('tdh').innerHTML = `<i class="fa-solid fa-paw"></i>`
+        setTimeout(() => {
+          document.getElementById('tdh').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdh').innerText = "="
+        }, 100)
+      } else if (value === '.') {
+        document.getElementById('tdi').innerHTML = `<i class="fa-solid fa-paw"></i>`
+        setTimeout(() => {
+          document.getElementById('tdi').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdi').innerText = "."
+        }, 100)
+      } else if (value === 'c' || value === 'C') {
+        document.getElementById('tdc').innerHTML = `<i class="fa-solid fa-paw"></i>`
+        setTimeout(() => {
+          document.getElementById('tdc').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdc').innerText = "C"
+        }, 100)
+      }
+      console.log(value)
+    }//calc()結束
 
 
 
-            //calc()開始
-            const calc = (value) => {
-
-
-                //字串過長時，縮小字體
-                if (input.innerText.length > 13) {
-                    input.style.fontSize = "20px"
-                } else if (input.innerText.length < 14) {
-                    input.style.fontSize = "24px"
-                }
-
-                if (value === 'Enter' || value === '=') {
-                    //執行算式
-                    input.innerText = eval(input.innerText)
-                    v.volume = vol.value * 0.1
-                    v.pause();
-                    v.currentTime = 0;
-                    v.play()//+上老師的喵喵叫音檔
-
-                } else if (
-                    !isNaN(parseInt(value)) ||
-                    value === '+' ||
-                    value === '-' ||
-                    value === '*' ||
-                    value === '/' ||
-                    value === '.'
-                ) {
-                    if (input.innerText.length < 19) { //限制字串長度避免寬度變形
-
-                        if (input.innerText === '0') {
-                            if(value === '.'){ //解決無法key 0.XXX數字
-                                input.innerText+='.'
-                            }else{
-                                input.innerText = value
-                            }
-                        } else {
-                            if (!isNaN(input.innerText[input.innerText.length - 1]) || !isNaN(parseInt(value))) {
-                                input.innerText += value
-                                //判斷最後一個字為數字 or key為數字時，才可以增加value。
-                                //修正+-*/重複疊加造成式子失敗現象
-                            }
-                        }
-                        v.volume = vol.value * 0.1
-                        v.pause();
-                        v.currentTime = 0;
-                        v.play()//+上老師的喵喵叫
-                    }
-                } else if (value === 'Backspace' || value === '') {
-                    //Backspace 設為返回
-                    input.innerText = input.innerText.substring(0, input.innerText.length - 1)//.substring(保留範圍)
-                    if (input.innerText.length === 0) {
-                        input.innerText = '0'
-                    }
-                    v.volume = vol.value * 0.1
-                    v.pause();
-                    v.currentTime = 0;
-                    v.play()//+上老師的喵喵叫
-                } else if (value === 'c' || value === 'C') { //大小寫c -> reset
-                    input.innerText = '0'
-                    v.volume = vol.value * 0.1
-                    v.pause();
-                    v.currentTime = 0;
-                    v.play()//+上老師的喵喵叫
-
-                }
-
-                // 效果(數字部分
-                if (!isNaN(parseInt(value))) {//發動後
-                    document.getElementById('td' + value).innerHTML = `<i class="fa-solid fa-paw"></i>`
-                    setTimeout(() => {
-                        document.getElementById('td' + value).style.background = "rgba(255, 255, 255, 0.5)"
-                        document.getElementById('td' + value).innerText = value
-                    }, 100)
-                }
-
-                // 效果(字符部分)
-                if (value === '/') {
-                    // document.getElementById('tda').style.background = "white"
-                    document.getElementById('tda').innerHTML = `<i class="fa-solid fa-paw"></i>`
-                    setTimeout(() => {
-                        document.getElementById('tda').style.background = "rgba(255, 255, 255, 0.5)"
-                        document.getElementById('tda').innerText = "/"
-                    }, 100)
-                } else if (value === '*') {
-                    document.getElementById('tdb').innerHTML = `<i class="fa-solid fa-paw"></i>`
-                    setTimeout(() => {
-                        document.getElementById('tdb').style.background = "rgba(255, 255, 255, 0.5)"
-                        document.getElementById('tdb').innerText = "*"
-                    }, 100)
-                } else if (value === 'Backspace' || value === "") {
-                    document.getElementById('tde').innerHTML = `<i class="fa-solid fa-paw"></i>`
-                    setTimeout(() => {
-                        document.getElementById('tde').style.background = "rgba(255, 255, 255, 0.5)"
-                        document.getElementById('tde').innerHTML = `<i class="fa-solid fa-delete-left"></i>`
-                    }, 100)
-                } else if (value === '-') {
-                    document.getElementById('tdf').innerHTML = `<i class="fa-solid fa-paw"></i>`
-                    setTimeout(() => {
-                        document.getElementById('tdf').style.background = "rgba(255, 255, 255, 0.5)"
-                        document.getElementById('tdf').innerText = "-"
-                    }, 100)
-                } else if (value === '+') {
-                    document.getElementById('tdg').innerHTML = `<i class="fa-solid fa-paw"></i>`
-                    setTimeout(() => {
-                        document.getElementById('tdg').style.background = "rgba(255, 255, 255, 0.5)"
-                        document.getElementById('tdg').innerText = "+"
-                    }, 100)
-                } else if (value === '=' || value === 'Enter') {
-                    document.getElementById('tdh').innerHTML = `<i class="fa-solid fa-paw"></i>`
-                    setTimeout(() => {
-                        document.getElementById('tdh').style.background = "rgba(255, 255, 255, 0.5)"
-                        document.getElementById('tdh').innerText = "="
-                    }, 100)
-                } else if (value === '.') {
-                    document.getElementById('tdi').innerHTML = `<i class="fa-solid fa-paw"></i>`
-                    setTimeout(() => {
-                        document.getElementById('tdi').style.background = "rgba(255, 255, 255, 0.5)"
-                        document.getElementById('tdi').innerText = "."
-                    }, 100)
-                } else if (value === 'c' || value === 'C') {
-                    document.getElementById('tdc').innerHTML = `<i class="fa-solid fa-paw"></i>`
-                    setTimeout(() => {
-                        document.getElementById('tdc').style.background = "rgba(255, 255, 255, 0.5)"
-                        document.getElementById('tdc').innerText = "C"
-                    }, 100)
-                }
-                console.log(value)
-            }//calc()結束
-
-        
-
-    </script>
+  </script>
 
 </body>
 
