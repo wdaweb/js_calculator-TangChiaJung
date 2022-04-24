@@ -11,8 +11,8 @@
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    * {
-      cursor: url(https://cur.cursors-4u.net/nature/nat-8/nat719.cur), auto !important;
+    body {
+      cursor: url(https://cur.cursors-4u.net/nature/nat-8/nat719.cur), auto 
     }
 
     /*增加鼠標*/
@@ -28,39 +28,62 @@
     #container {
       margin: 0;
       padding: 5% 20%;
-
     }
 
     table {
+      position: relative;
       width: 300px;
       height: 400px;
       font-family: 'Oxanium', cursive;
       font-size: 24px;
-      background: rgba(186, 151, 117, 0.8);
-      border-radius: 5%;
-      box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
-      /* filter: drop-shadow(5px 5px 6px rgba(70, 70, 70, 0.8)); */
       border-collapse: separate;
-      border-spacing: 5px;
+      border-spacing: 10px;
       padding: 15px;
+      border-radius: 20px;
+      background: #333;
+      box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
+        10px 10px 70px rgba(0, 0, 0, 0.25),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.25),
+        inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    body.light table {
+      background: #fff;
+
+      box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.15),
+        10px 10px 70px rgba(0, 0, 0, 0.25),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.15),
+        inset 5px 5px 15px rgba(0, 0, 0, 0.25);
     }
 
     td {
+
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+      border-radius: 10%;
+      position: relative;
       width: 40px;
       height: 40px;
-      /* border: 3px solid rgb(10, 10, 10); */
-      text-align: center;
-      vertical-align: middle;
+      background: linear-gradient(180deg, #2f2f2f, #3f3f3f);
+      box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+        inset 0 -8px 8px rgba(0, 0, 0, 0.25),
+        0 0 0 2px rgba(0, 0, 0, 0.75),
+        10px 20px 25px rgba(0, 0, 0, 0.4);
       color: white;
-      border-radius: 10%;
-      /* background: rgba(255, 255, 255, 0.5); */
-      background: linear-gradient(50deg, rgb(0, 0, 0), rgb(120, 119, 119));
-      /*深->淺*/
-
-      box-shadow: -1px 1px 1px rgba(62, 62, 62, 0.5);
-      /* filter: drop-shadow(-5px 5px 6px rgba(86, 86, 86, 0.8)); */
-      position: relative;
+      user-select: none;
     }
+
+    body.light td {
+      background: linear-gradient(180deg, #fafafa, #f4f4f4);
+      box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+        inset 0 -8px 8px rgba(0, 0, 0, 0.25),
+        0 0 0 2px rgba(0, 0, 0, 1),
+        10px 20px 25px rgba(0, 0, 0, 0.4);
+      color: white;
+      
+
+    }
+
+
 
     #tdh,
     #td0 {
@@ -68,61 +91,199 @@
     }
 
     div .td_bg {
-      background: linear-gradient(210deg, rgb(59, 59, 59), rgb(77, 77, 77), rgb(66, 66, 66));
+
       width: 45px;
-      height: 35px;
-      border-radius: 5%;
+      height: 40px;
       position: absolute;
-      right: 3px;
-      top: 4px;
+      top: 3px;
+      left: 3px;
+      bottom: 14px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
+      text-align: center;
+      line-height: 40px;
     }
 
-    .td_bg2 {
+    body.light .td_bg i {
+      color: #2d2d2d;
+    }
 
-      background: linear-gradient(210deg, rgb(59, 59, 59), rgb(77, 77, 77), rgb(66, 66, 66));
-      /*深->淺*/
+    body.light .td_bg {
       width: 45px;
-      height: 80px;
-      border-radius: 5%;
+      height: 35px;
+      background: linear-gradient(90deg, #e6e6e6, #efefef);
+      border-radius: 10px;
+      box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.1),
+        10px 5px 10px rgba(0, 0, 0, 0.15);
+      color: #2d2d2d;
+      border-left: 1px solid #fff4;
+      border-bottom: 1px solid #fff4;
+      border-top: 1px solid #fff9;
+      filter: brightness(0.9);
+    }
+
+    body.light .td_bg2 {
+      width: 45px;
+      height: 90px;
+      background: linear-gradient(90deg, #e6e6e6, #efefef);
+      border-radius: 10px;
+      box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.1),
+        10px 5px 10px rgba(0, 0, 0, 0.15);
+      color: #2d2d2d;
+      border-left: 1px solid #fff4;
+      border-bottom: 1px solid #fff4;
+      border-top: 1px solid #fff9;
+      filter: brightness(0.9);
+    }
+
+    body.light .td_bg3 {
+      width: 110px;
+      height: 35px;
+      background: linear-gradient(90deg, #e6e6e6, #efefef);
+      border-radius: 10px;
+      box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.1),
+        10px 5px 10px rgba(0, 0, 0, 0.15);
+      color: #2d2d2d;
+      border-left: 1px solid #fff4;
+      border-bottom: 1px solid #fff4;
+      border-top: 1px solid #fff9;
+      filter: brightness(0.9);
+    }
+
+
+    .td_bg2 {
       position: absolute;
-      right: 3px;
-      top: 4.5px;
+      background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
+      top: 3px;
+      left: 3px;
+      bottom: 14px;
+      border-radius: 10px;
+      text-align: center;
+      width: 45px;
+      height: 90px;
+      line-height: 100px;
+
     }
 
     .td_bg3 {
 
-      background:linear-gradient(210deg, rgb(59, 59, 59), rgb(77, 77, 77), rgb(66, 66, 66));
-      /*深->淺*/
       width: 110px;
       height: 35px;
-      border-radius: 5%;
       position: absolute;
-      right: 3px;
-      top: 4.5px;
+      background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
+      top: 3px;
+      left: 3px;
+      bottom: 14px;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 40px;
     }
 
 
     td:hover {
-
       color: black;
       border-radius: 5%;
-
     }
 
     #input {
+      /*計算機螢幕*/
       text-align: right;
       border-radius: 5%;
-      padding: 5px;
-      background: rgb(0, 0, 0);
-      border: 3px solid rgb(10, 10, 10);
+      background: rgb(114, 156, 92);
+      border: 1px solid rgb(124, 124, 124);
+      box-shadow: inset -4px 5px 5px rgba(0, 0, 0, 0.5), inset 5px -5px 5px rgba(98, 98, 98, 0.8);
+      padding-right: 6%;
+      height: 80px;
     }
-
 
     #input:hover {
       color: white;
       border-radius: 5%;
     }
 
+
+    /* 計算機樣式切換紐 */
+    .btn {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 60px;
+      height: 60px;
+      background: #333;
+      font-size: 1.5em;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25),
+        5px 5px 30px rgba(0, 0, 0, 0.25),
+        inset -2px -2px 5px rgba(0, 0, 0, 0.25),
+        inset 2px 2px px rgba(0, 0, 0, 0.25);
+      display: flex;
+      justify-content: center;
+      /*居中排列*/
+      align-items: center;
+      /*居中對齊*/
+
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    body.light .btn {
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1),
+        5px 5px 30px rgba(0, 0, 0, 0.05),
+        inset -2px -2px 5px rgba(0, 0, 0, 0.1),
+        inset 2px 2px px rgba(0, 0, 0, 0.05);
+
+    }
+
+    .btn i {
+      display: none;
+      font-size: 1.5em;
+    }
+
+    .btn i:nth-child(1) {
+      display: block;
+      font-size: 1.5em;
+    }
+    .btn i:hover{
+      display: none;
+      
+    }
+    
+    .btn i:nth-child(1):hover {
+      display: block;
+      font-size: 1.5em;
+      transform: scale(1.2);
+      transition: 1s;
+    }
+
+    body.light .btn i:nth-child(1) {
+      display: none;
+    }
+
+    body.light .btn i:nth-child(2) {
+      display: block;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: rgb(255, 255, 255);
+      
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25),
+        5px 5px 30px rgba(0, 0, 0, 0.25),
+        inset -2px -2px 5px rgba(0, 0, 0, 0.25),
+        inset 2px 2px px rgba(0, 0, 0, 0.25);
+      display: flex;
+      justify-content: center;
+      /*居中排列*/
+      align-items: center;
+      /*居中對齊*/
+      border-radius: 10px;
+    }
+    body.light .btn i:nth-child(2) i:hover {
+      transform: scale(1.2);
+      transition: 1s;
+    }
+
+
+    /**/
     span,
     i {
       color: white;
@@ -149,48 +310,36 @@
       width: 200px;
     }
 
+    /*音量調整*/
     #vol {
       margin-left: 10%;
       margin-top: 5%;
+      cursor: pointer;
     }
 
+    /*背景切換紐*/
     #bg_left i:hover {
       transform: translate(-5px, 0);
       transition: 2s;
       filter: drop-shadow(3px 3px 5px rgba(255, 255, 255, 0.8));
+      cursor: pointer;
     }
 
     #bg_right i:hover {
       transform: translate(5px, 0);
       transition: 2s;
       text-shadow: 0px 0px 20px rgb(255, 255, 255);
+      cursor: pointer;
 
     }
 
+    /*背景切換轉場*/
     #span:hover {
       transform: scale(0.8);
       transition: 2s;
       text-shadow: 0px 0px 20px rgb(255, 255, 255);
       cursor: pointer;
-
     }
-
-    /* @keyframes animation-a{
-            0%{
-                transform: translate(0,0) ;
-            }
-            100%{
-                transform: translate(-30px,0) ;
-            }
-        }
-        .animation{
-            animation-name: animation-a;
-            animation-duration: 3s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-            animation-direction: normal;
-            animation-play-state: running;
-        } */
   </style>
 </head>
 
@@ -213,66 +362,66 @@
       </tr>
 
       <tr>
-        <td >
+        <td>
           <div id="tdc" class="td_bg">c</div>
         </td>
-        <td >
+        <td>
           <div id="tda" class="td_bg">/</div>
         </td>
-        <td >
+        <td>
           <div id="tdb" class="td_bg">*</div>
         </td>
-        <td >
+        <td>
           <div id="tde" class="td_bg"><i class="fa-solid fa-delete-left"></i></div>
         </td>
       </tr>
       <tr>
-        <td >
+        <td>
           <div id="td7" class="td_bg">7</div>
         </td>
-        <td >
+        <td>
           <div id="td8" class="td_bg">8</div>
         </td>
-        <td >
+        <td>
           <div id="td9" class="td_bg">9</div>
         </td>
-        <td >
+        <td>
           <div id="tdf" class="td_bg">-</div>
         </td>
       </tr>
       <tr>
-        <td >
+        <td>
           <div id="td4" class="td_bg">4</div>
         </td>
-        <td >
+        <td>
           <div id="td5" class="td_bg">5</div>
         </td>
-        <td >
+        <td>
           <div id="td6" class="td_bg">6</div>
         </td>
-        <td >
+        <td>
           <div id="tdg" class="td_bg">+</div>
         </td>
       </tr>
       <tr>
-        <td >
+        <td>
           <div id="td1" class="td_bg">1</div>
         </td>
-        <td >
+        <td>
           <div id="td2" class="td_bg">2</div>
         </td>
-        <td >
+        <td>
           <div id="td3" class="td_bg">3</div>
         </td>
-        <td  rowspan="2">
+        <td rowspan="2">
           <div id="tdh" class="td_bg2">=</div>
         </td>
       </tr>
       <tr>
-        <td colspan="2" >
+        <td colspan="2">
           <div id="td0" class="td_bg3">0</div>
         </td>
-        <td >
+        <td>
           <div id="tdi" class="td_bg">.</div>
         </td>
 
@@ -280,12 +429,20 @@
 
     </table>
 
+    <!-- 計算機樣式切換 -->
+    <div class="btn">
+      <i style="color:yellow" class="fa-solid fa-moon"></i>
+      <i style="color:rgb(202, 45, 45)" class="fa-solid fa-sun"></i>
+    </div>
 
+
+    <!-- 音量 -->
     <input id="vol" type="range" max="10" min="0" value="3">
     <i id="span" style="font-size: 20px;" class="fa-solid fa-volume-low"></i>
 
-
   </div>
+
+
   <div id="bg_right" style="display: inline-block ;position: absolute;top:50% ; right: 5%;font-size: 25px;"><i
       class="fa-solid fa-angles-right "></i></div>
   <div id="bg_left" class="animation"
@@ -295,6 +452,15 @@
 
 
   <script>
+
+    //計算機風格切換
+    let body = document.querySelector('body')
+    let btn = document.querySelector('.btn')
+    btn.onclick = function () {
+      body.classList.toggle('light') /*切換類(toggle)*/
+    }
+
+
     //可更換背景
     let index = 0
 
@@ -472,66 +638,13 @@
 
 
 
-      // let id = ''
-
-      // // 效果(數字部分
-      // if (value === '/') {
-      //     id = 'tda'
-      // } else if (value === '*') {
-      //     id = 'tdb'
-      // } else if (value === value === 'Backspace' || value === "") {
-      //     id = 'tde'
-      // } else if (value === '-') {
-      //     id = 'tdf'
-      // } else if (value === '+') {
-      //     id = 'tdg'
-      // } else if (value === '=' || value === 'Enter') {
-      //     id = 'tdh'
-      // } else if (value === '.') {
-      //     id = 'tdi'
-      // } else if (value === 'c' || vvalue === 'C') {
-      //     id = 'tdc'
-      // } else if (!isNaN(parseInt(value))) {
-      //     id = 'td' + value
-      // }
-
-
-      // if (id != '') {
-      //     document.getElementById(id).innerHTML = `<i class="fa-solid fa-paw"></i>`
-      //     setTimeout(() => {
-      //         document.getElementById(id).style.background = "rgba(255, 255, 255, 0.5)"
-
-      //         //特別字符處理 value!=圖示
-      //         switch (value) {
-      //             case 'Backspace':
-      //                 value = `<i class="fa-solid fa-delete-left"></i>`;
-      //                 break;
-      //             case '':
-      //                 value = `<i class="fa-solid fa-delete-left"></i>`;
-      //                 break;
-      //             case 'Enter':
-      //                 value = '=';
-      //                 break;
-      //         }
-
-      //         //一般value=圖示
-      //         document.getElementById(id).innerHTML = value;
-      //     }, 100)
-
-      //     v.volume = vol.value * 0.1
-      //     v.pause();
-      //     v.currentTime = 0;
-      //     v.play()
-
-      // }
-
       if (!isNaN(parseInt(value))) {//發動後
         document.getElementById('td' + value).innerHTML = `<i class="fa-solid fa-paw"></i>`
         setTimeout(() => {
-          document.getElementById('td' + value).style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('td' + value).style.background = "linear-gradient(90deg, #2d2d2d, #4d4d4d);"
           document.getElementById('td' + value).innerText = value
           // document.querySelector('.td_bg').innerText=value
-          
+
         }, 100)
       }
 
@@ -540,49 +653,49 @@
         // document.getElementById('tda').style.background = "white"
         document.getElementById('tda').innerHTML = `<i class="fa-solid fa-paw"></i>`
         setTimeout(() => {
-          document.getElementById('tda').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tda').style.background = "linear-gradient(90deg, #2d2d2d, #4d4d4d);"
           document.getElementById('tda').innerText = "/"
         }, 100)
       } else if (value === '*') {
         document.getElementById('tdb').innerHTML = `<i class="fa-solid fa-paw"></i>`
         setTimeout(() => {
-          document.getElementById('tdb').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdb').style.background = "linear-gradient(90deg, #2d2d2d, #4d4d4d);"
           document.getElementById('tdb').innerText = "*"
         }, 100)
       } else if (value === 'Backspace' || value === "") {
         document.getElementById('tde').innerHTML = `<i class="fa-solid fa-paw"></i>`
         setTimeout(() => {
-          document.getElementById('tde').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tde').style.background = "linear-gradient(90deg, #2d2d2d, #4d4d4d);"
           document.getElementById('tde').innerHTML = `<i class="fa-solid fa-delete-left"></i>`
         }, 100)
       } else if (value === '-') {
         document.getElementById('tdf').innerHTML = `<i class="fa-solid fa-paw"></i>`
         setTimeout(() => {
-          document.getElementById('tdf').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdf').style.background = "linear-gradient(90deg, #2d2d2d, #4d4d4d);;"
           document.getElementById('tdf').innerText = "-"
         }, 100)
       } else if (value === '+') {
         document.getElementById('tdg').innerHTML = `<i class="fa-solid fa-paw"></i>`
         setTimeout(() => {
-          document.getElementById('tdg').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdg').style.background = "linear-gradient(90deg, #2d2d2d, #4d4d4d);;"
           document.getElementById('tdg').innerText = "+"
         }, 100)
       } else if (value === '=' || value === 'Enter') {
         document.getElementById('tdh').innerHTML = `<i class="fa-solid fa-paw"></i>`
         setTimeout(() => {
-          document.getElementById('tdh').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdh').style.background = "linear-gradient(90deg, #2d2d2d, #4d4d4d);;"
           document.getElementById('tdh').innerText = "="
         }, 100)
       } else if (value === '.') {
         document.getElementById('tdi').innerHTML = `<i class="fa-solid fa-paw"></i>`
         setTimeout(() => {
-          document.getElementById('tdi').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdi').style.background = "linear-gradient(90deg, #2d2d2d, #4d4d4d);;"
           document.getElementById('tdi').innerText = "."
         }, 100)
       } else if (value === 'c' || value === 'C') {
         document.getElementById('tdc').innerHTML = `<i class="fa-solid fa-paw"></i>`
         setTimeout(() => {
-          document.getElementById('tdc').style.background = "linear-gradient(210deg, rgb(59, 59, 59), rgb(74, 74, 74), rgb(73, 72, 72));"
+          document.getElementById('tdc').style.background = "linear-gradient(90deg, #2d2d2d, #4d4d4d);;"
           document.getElementById('tdc').innerText = "C"
         }, 100)
       }
